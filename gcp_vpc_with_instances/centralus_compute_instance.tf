@@ -33,16 +33,5 @@ resource "google_compute_instance" "centralus" {
     }
   }
 
-  metadata = {
-    foo = "bar"
-  }
-
-  metadata_startup_script = "echo hi > /test.txt"
-
-#   service_account {
-#     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-#     email  = google_service_account.default.email
-#     scopes = ["cloud-platform"]
-#   }
   depends_on = [ google_compute_subnetwork.vpc1_uscentral1_subnet1 ]
 }
